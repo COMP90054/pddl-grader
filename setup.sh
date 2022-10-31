@@ -6,3 +6,5 @@ pip3 install tarski[gringo]
 planutils install -f -y lama-first
 planutils install -f -y val
 
+
+planutils activate

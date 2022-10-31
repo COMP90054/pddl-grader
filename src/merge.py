@@ -277,7 +277,16 @@ if __name__ == "__main__":
     problem2_name = sys.argv[4]
     merged_domain = sys.argv[5]
     merged_problem = sys.argv[6]
-    
+
+    with open(f'{domain2_name}', 'r') as file:
+        data = file.read()
+        if data.find('items - object') == -1:
+            data = data.split('(:types')
+            new_data = data[0] + '(:types \n items - object \n'+data[1]
+            file.close()
+            with open(f'{domain2_name}', 'w') as file:
+                file.write(new_data)
+        
     main(domain1_name, problem1_name, domain2_name, problem2_name, merged_domain, merged_problem)
 
 
